@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalpten Sana</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .message {
+      font-size: 2em;
+      max-width: 700px;
+      text-shadow: 1px 1px 6px #ff4d6d;
+      z-index: 2;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      animation: fall 5s linear infinite;
+      font-size: 2rem;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="romantik.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="message">
+    Burası senin yerin... 💞<br><br>
+    Kalbimin en özel köşesi, sadece sana ait.  
+    Varlığınla her şey güzelleşiyor.  
+    Gülüşünle aydınlanıyor dünyam.  
+    Seni tarif etmek kelimelere sığmaz Didem...  
+    <br><br>  
+    Çünkü ben seni kalbimle seviyorum.  
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 200);
+  </script>
+</body>
+</html>
